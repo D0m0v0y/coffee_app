@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_coffee/pages/home_page/home_page.dart';
 
 void main(){
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Container(
-            alignment: Alignment.center,
-            child: Text(
-            'dfdfh'
-            ),
-            color: Colors.deepOrange,
-          ),
-        ),
-      ),
-    )
-  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: ThemeData(brightness: Brightness.dark),
+    );
+  }
 }

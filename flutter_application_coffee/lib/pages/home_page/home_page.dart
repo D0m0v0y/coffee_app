@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'Bottom_navigation.dart';
+import 'package:flutter_application_coffee/pages/home_page/app_bar.dart';
+import 'package:flutter_application_coffee/pages/home_page/home_interface/home_interface.dart';
+import 'bottom_navigation.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -10,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = const [
-    Center(child: Text('Home')),
+    HomeInterface(),
     Center(child: Text('Like')),
     Center(child: Text('Notifications')),
   ];
@@ -24,19 +28,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: Icon(Icons.menu),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 8),
-            child: Icon(Icons.person),
-            )
-        ],
-      ),
-      body: IndexedStack(
+        appBar:  const CustomAppBar(),
+        body:  IndexedStack(
         index: _currentIndex,
         children: _pages,
       ),
@@ -49,14 +42,14 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: Colors.black.withAlpha((0.5 * 255).round()),
                 blurRadius: 2,
                 spreadRadius: 10,
                 offset: const Offset(0, -2),
               ),
             ],
           ),
-          child: BottomNav(currentIndex: _currentIndex, onTap: _onTap)
+          child:  BottomNav(currentIndex: _currentIndex, onTap: _onTap)
         ),
       ),
     );

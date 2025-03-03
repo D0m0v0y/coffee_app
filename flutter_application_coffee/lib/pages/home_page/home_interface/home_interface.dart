@@ -23,10 +23,12 @@ class HomeInterface extends StatelessWidget {
             ),
         ),
         SizedBox(height: 25),
-        InputField(),   //поле для ввода
+        InputField(),  //поле для ввода
         SizedBox(height: 25),
-        ScrollMenuHorizontal(),    //список напитков
-
+        Expanded(
+          child: 
+        ScrollMenuHorizontal() //список напитков
+        )
       ],
     );
   }

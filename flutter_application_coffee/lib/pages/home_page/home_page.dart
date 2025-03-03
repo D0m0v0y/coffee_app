@@ -12,17 +12,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  final List coffee = [
-    ['Cappuchino', true],
-    ['Espresso', false],
-    ['Latte', false],
-    ['Flet White', false],
-    ['Raf', false] 
-  ]; 
-
-  void coffeeSelectedType(){
-
-  }
 
   final List<Widget> _pages = const [
     HomeInterface(),

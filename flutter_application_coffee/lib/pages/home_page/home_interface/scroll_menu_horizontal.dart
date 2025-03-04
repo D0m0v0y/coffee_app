@@ -33,15 +33,45 @@ class _ScrollMenuHorizontalState extends State<ScrollMenuHorizontal>{
   Widget _getMenuCoffee(int index){
     switch(index){
       case 0:
-        return DifferentCoffeeMenu(foto: AssetImage('assets/image/xxh.jpeg'), nameCoffee: 'Cappuccino', price: 3, secondName: 'gggh',);
-      // case 1:
-      //   return DifferentCoffeeMenu();
-      // case 2:
-      //   return DifferentCoffeeMenu();
-      // case 3:
-      //   return DifferentCoffeeMenu();
-      // case 4:
-      //   return DifferentCoffeeMenu();
+        return DifferentCoffeeMenu(
+          foto:
+          AssetImage('lib/assets/image/espresso.jpg'), 
+          nameCoffee: 'Espresso', 
+          price: 2, 
+          secondName: 'With Oat Milk',
+          );
+      case 1:
+        return DifferentCoffeeMenu(
+          foto:
+          AssetImage('lib/assets/image/espresso.jpg'), 
+          nameCoffee: 'Latte', 
+          price: 4, 
+          secondName: 'With Oat Milk',
+        );
+      case 2:
+        return DifferentCoffeeMenu(
+          foto:
+          AssetImage('lib/assets/image/espresso.jpg'), 
+          nameCoffee: 'Cappuccino', 
+          price: 3, 
+          secondName: 'With Oat Milk',
+        );
+      case 3:
+        return DifferentCoffeeMenu(
+          foto:
+          AssetImage('lib/assets/image/espresso.jpg'), 
+          nameCoffee: 'Americano', 
+          price: 2, 
+          secondName: 'With Oat Milk',
+        );
+      case 4:
+        return DifferentCoffeeMenu(
+          foto:
+          AssetImage('lib/assets/image/espresso.jpg'), 
+          nameCoffee: 'Flat white', 
+          price: 5, 
+          secondName: 'With Oat Milk',
+        );
       default:
         return SizedBox(height: 10);
     }

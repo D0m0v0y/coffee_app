@@ -33,15 +33,15 @@ class _ScrollMenuHorizontalState extends State<ScrollMenuHorizontal>{
   Widget _getMenuCoffee(int index){
     switch(index){
       case 0:
-        return EspressoMenu();
+        return DifferentCoffeeMenu(foto: AssetImage('assets/image/xxh.jpeg'), nameCoffee: 'Cappuccino', price: 3, secondName: 'gggh',);
       // case 1:
-      //   return LatteMenu();
+      //   return DifferentCoffeeMenu();
       // case 2:
-      //   return CappuccinoMenu();
+      //   return DifferentCoffeeMenu();
       // case 3:
-      //   return AmericanoMenu();
+      //   return DifferentCoffeeMenu();
       // case 4:
-      //   return FlatWhiteMenu();
+      //   return DifferentCoffeeMenu();
       default:
         return SizedBox(height: 10);
     }

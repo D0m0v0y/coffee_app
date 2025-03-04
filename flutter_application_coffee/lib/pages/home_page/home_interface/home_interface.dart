@@ -27,7 +27,7 @@ class HomeInterface extends StatelessWidget {
         SizedBox(height: 25),
         Expanded(
           child: 
-        ScrollMenuHorizontal() //список напитков
+            ScrollMenuHorizontal() //список напитков
         )
       ],
     );

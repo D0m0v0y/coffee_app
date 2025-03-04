@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
-class EspressoMenu extends StatelessWidget {
-  const EspressoMenu({super.key});
+class DifferentCoffeeMenu extends StatelessWidget {
+  final ImageProvider foto;
+  final String nameCoffee;
+  final String secondName;
+  final int price;
+
+  const DifferentCoffeeMenu({
+    super.key, 
+    required this.foto, 
+    required this.nameCoffee, 
+    required this.secondName,
+    required this.price
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,24 +23,21 @@ class EspressoMenu extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 20,
-        mainAxisSpacing: 10
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.6
       ),
       itemCount: 2,
       itemBuilder: (context, index){
-        return Card(child: 
-         SizedBox( 
-          height: 370,
-          width: 170,
+        return Card(
           child: Stack(
             children: [
-              ColoredBox(color: Colors.white),
-              const Positioned(
-              bottom: 10,
-              left: 10,
-              child: Text('1')),
+              SizedBox(
+                height: 250,
+                width: 100,
+              child: Image(image: foto)
+              )
             ],
           )
-         )
         );
       }
     );

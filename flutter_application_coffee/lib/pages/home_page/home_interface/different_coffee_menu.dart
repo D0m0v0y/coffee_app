@@ -17,75 +17,67 @@ class DifferentCoffeeMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 10,
-        childAspectRatio: 0.6
+    return Container(
+      margin: const EdgeInsets.all(8), // Внешние отступы
+      constraints: const BoxConstraints(
+        minWidth: 160, // Минимальная ширина
+        maxWidth: 200, // Максимальная ширина
+        minHeight: 220, // Минимальная высота
       ),
-      itemCount: 2,
-      itemBuilder: (context, index){
-        return Card(
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.all(15),
+              // Контейнер для изображения с фиксированными пропорциями
+              AspectRatio(
+                aspectRatio: 1, // Квадратное изображение
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image(image: foto),
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image(
+                    image: foto,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => 
+                      const Icon(Icons.coffee, size: 50),
+                  ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text(
-                    nameCoffee,
-                    style: GoogleFonts.sora(
-                      fontSize: 17
-                    ),
-                  )
-                )
+              const SizedBox(height: 12),
+              Text(
+                nameCoffee,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(
-                height: 5,
+              const SizedBox(height: 4),
+              Text(
+                secondName,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey[600],
+                ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text(
-                    secondName,
-                    style: GoogleFonts.sora(
-                      fontSize: 10
-                    ),
-                  )
-                )
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text(
-                    '\$ $price',
-                    style: GoogleFonts.sora(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 198, 124, 78)
-                    ),
-                  )
-                )
+              const Spacer(),
+              Text(
+                '\$$price',
+                style: GoogleFonts.sora(
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 198, 124, 78),
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
-          )
-        );
-      }
+          ),
+        ),
+      ),
     );
   }
 }
